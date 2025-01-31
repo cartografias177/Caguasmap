@@ -69,33 +69,12 @@
   <table id="maptable" class="display"></table>
 
   <script type="text/javascript">
-    // Definir coordenadas y nivel de zoom iniciales
-    var initialCenter = [41.76, -72.69];
-    var initialZoom = 11;
-
-    // Crear el mapa con las opciones especificadas
     var map = L.map('map', {
       attributionControl: false,
       zoomControl: false,
       scrollWheelZoom: false,
       tap: false
-    }).setView(initialCenter, initialZoom);
-
-    // Agregar un botón de "Volver al inicio"
-    var homeButton = L.control({ position: 'topleft' });
-
-    homeButton.onAdd = function(map) {
-      var div = L.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-custom');
-      div.innerHTML = '<button id="homeButton" title="Volver al inicio" style="background:white;border:none;padding:5px;"><i class="fas fa-home"></i></button>';
-      div.style.cursor = "pointer";
-      div.style.margin = "5px";
-      div.onclick = function() {
-        map.setView(initialCenter, initialZoom);
-      };
-      return div;
-    };
-
-    homeButton.addTo(map);
+    }).setView([41.76,-72.69], 11); // default center is overridden by Google Sheet options and points
   </script>
 
   <script type="text/javascript" src="./google-doc-url.js"></script>
@@ -106,4 +85,3 @@
 
 </body>
 </html>
-
